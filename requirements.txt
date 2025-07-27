@@ -4,3 +4,7 @@ yfinance
 fastapi[standard] 
 openai
 anthropic
+pandas
+numpy
+requests
+beautifulsoup4

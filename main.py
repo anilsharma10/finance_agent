@@ -7,30 +7,22 @@ from agno.playground import Playground, serve_playground_app
 # create the AI finance agent with enhanced YFinance tools
 agent = Agent(
     name="claude-finance-agent",
-    model=Claude(id="claude-3-opus-20240229"),
+    model=Claude(id="claude-3-5-sonnet-20241022"),
     tools=[
         DuckDuckGoTools(), 
         YFinanceTools(
-            # Basic data (what you already have)
+            # Basic data
             stock_price=True,
             analyst_recommendations=True, 
             stock_fundamentals=True,
             
-            # NEW: Enhanced data features
+            # Enhanced data features
             company_info=True,           # Company description, sector, industry
-            historical_data=True,        # Price history for charts/trends
-            news=True,                   # Latest company news
-            earnings=True,               # Earnings data and calendar
-            financials=True,             # Income statement, balance sheet
-            cash_flow=True,              # Cash flow statements
-            balance_sheet=True,          # Balance sheet data
-            income_statement=True,       # P&L statements
-            options=True,                # Options data
-            holders=True,                # Institutional/insider holdings
-            calendar=True,               # Earnings calendar
-            actions=True,                # Dividends, stock splits
-            shares=True,                 # Share count data
-            sustainability=True,         # ESG scores
+            historical_prices=True,      # Price history for charts/trends
+            company_news=True,           # Latest company news
+            income_statements=True,      # Income statement data
+            key_financial_ratios=True,   # Financial ratios (P/E, P/B, ROE, etc.)
+            technical_indicators=True,   # Technical analysis indicators
         )
     ],
     instructions=[
@@ -41,7 +33,14 @@ agent = Agent(
         "Provide both technical and fundamental analysis when possible.",
         "Include recent news and earnings information in your recommendations.",
         "Show historical performance and trends.",
-        "Always mention risks and provide balanced analysis."
+        "Always mention risks and provide balanced analysis.",
+        "Use real-time data from your tools to provide current market insights.",
+        "When analyzing stocks, always check the latest news and market conditions.",
+        "Provide actionable investment recommendations with clear reasoning.",
+        "Include both bullish and bearish perspectives in your analysis.",
+        "Mention any recent significant events that might impact the stock.",
+        "Use current market data to overcome any training data limitations.",
+        "Always verify information using your available tools before making recommendations."
     ],
     show_tool_calls=True,
     markdown=True,
