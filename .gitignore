@@ -1,0 +1,15 @@
+# Environment variables (YOUR API KEY!)
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.vscode/
+.DS_Store
+
+# Logs
+*.log
