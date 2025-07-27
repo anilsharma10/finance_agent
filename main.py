@@ -7,10 +7,7 @@ from agno.playground import Playground, serve_playground_app
 # create the AI finance agent
 agent = Agent(
     name="claude-finance-agent",
-    model=Claude(
-        id="claude-3-opus-20240229",
-        api_key="your_anthropic_api_key_here"  # Add your API key here
-    ),
+    model=Claude(id="claude-3-opus-20240229"),
     tools=[DuckDuckGoTools(), YFinanceTools(stock_price=True, analyst_recommendations=True, stock_fundamentals=True)],
     instructions=["Always use tables to display financial/numerical data. For text data use bullet points and small paragraphs."],
     show_tool_calls=True,
